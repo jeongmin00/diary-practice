@@ -180,6 +180,7 @@ function renderEntry(entry) {
   // 힌트: createElement, textContent, className, appendChild, addEventListener
 }
 
+// 4-2. 전체 일기 목록 그리기
 function renderAllEntries(mood) {
   // TODO: diary 배열의 모든 일기를 화면에 그리세요
   //
@@ -189,7 +190,6 @@ function renderAllEntries(mood) {
 
   let entries = diary;
 
-  // 4-2. 전체 일기 목록 그리기
   // renderAllEntries를 수정해서 특정 mood만 필터링 가능하게 만들기
   //    - 예: renderAllEntries('happy') → 행복한 일기만 표시
   //    - 힌트: 파라미터로 mood를 받아서, 있으면 filter 적용
@@ -214,9 +214,14 @@ function renderAllEntries(mood) {
     const entryElement = renderEntry(entry);
     diaryList.appendChild(entryElement);
   });
-
   //
   // 힌트: forEach로 순회, appendChild로 추가
+
+  // 3. 일기 개수를 헤더 제목 옆에 실시간으로 표시하기
+  //    - 예: "일기 목록 (3)"
+  //    - 힌트: renderAllEntries 안에서 h2의 textContent 수정
+  const title = document.querySelector("h2");
+  title.textContent = `일기 목록 (${entries.length})`;
 }
 
 // ============================================
